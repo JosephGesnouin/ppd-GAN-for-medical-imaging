@@ -80,8 +80,8 @@ def get_seq():
 
 train = CreateModel(
     NASNetMobile(input_shape=(96,96,3), classes=2, include_top=False), batch_size=256, size=(96,96,3),
-    batch_size_val = 256, save_model="models/dataset-3/", name_model="nasnet_02", multi_check=False,
-	class_mode="categorical", epochs=30)
+    batch_size_val = 256, save_model="models/dataset-3/", name_model="nasnet_02_2", multi_check=False,
+	class_mode="categorical", epochs=30, imagenet="models/dataset-3/nasnet_02/model.hdf5")
 train.set_train_generator("/home/yannis/Developpement/ppd-GAN-for-medical-imaging/data/dataset-3/split_train/train")
 train.set_val_generator("/home/yannis/Developpement/ppd-GAN-for-medical-imaging/data/dataset-3/split_train/val")
 train.set_augmentation(get_seq)

@@ -92,6 +92,9 @@ class CreateModel:
 		x = Dense(2, activation='softmax', name='predictions')(x)
 		
 		model = Model(base_model.input, x)
+
+		if self.imagenet:
+			model.load_weights(self.imagenet)
 		
 		if self.freeze:
 			if self.freeze == "auto":
